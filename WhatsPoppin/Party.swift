@@ -39,4 +39,13 @@ extension Party {
         "Analyze Piss",
         "Raising Gazorpazorp"
     ]
+    
+    static func getRandomURL() -> String {
+        return urls[Int.random(in: 0..<Party.urls.count)]
+    }
+    
+    static func getRandomName() -> String {
+        return names[Int.random(in: 0..<Party.names.count)]
+
+    }
 }

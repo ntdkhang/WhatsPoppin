@@ -29,7 +29,7 @@ struct CreatePartySheetView: View {
             }
             
             Button("Create") {
-                partyVM.addParty(Party(name: name, imageURLString: Party.urls[0], price: price ?? 0, startDate: startDate))
+                partyVM.addParty(Party(name: name, imageURLString: Party.getRandomURL(), price: price ?? 0, startDate: startDate))
                 dismiss.callAsFunction()
             }
         }
