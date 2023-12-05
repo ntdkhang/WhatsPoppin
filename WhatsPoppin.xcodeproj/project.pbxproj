@@ -15,6 +15,8 @@
 		42EE6C222B1EA4DB000A836D /* PartyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE6C212B1EA4DB000A836D /* PartyViewModel.swift */; };
 		42EE6C242B1EA52E000A836D /* BrowsePartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE6C232B1EA52E000A836D /* BrowsePartyView.swift */; };
 		42EE6C262B1EAA5B000A836D /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE6C252B1EAA5B000A836D /* Color+.swift */; };
+		42EE6C282B1EC80E000A836D /* CreatePartySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE6C272B1EC80E000A836D /* CreatePartySheetView.swift */; };
+		42EE6C2A2B1EC83D000A836D /* PartyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EE6C292B1EC83D000A836D /* PartyCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		42EE6C212B1EA4DB000A836D /* PartyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyViewModel.swift; sourceTree = "<group>"; };
 		42EE6C232B1EA52E000A836D /* BrowsePartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePartyView.swift; sourceTree = "<group>"; };
 		42EE6C252B1EAA5B000A836D /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		42EE6C272B1EC80E000A836D /* CreatePartySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartySheetView.swift; sourceTree = "<group>"; };
+		42EE6C292B1EC83D000A836D /* PartyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,7 @@
 				42EE6C132B1EA3B6000A836D /* ContentView.swift */,
 				42EE6C1F2B1EA470000A836D /* Party.swift */,
 				42EE6C212B1EA4DB000A836D /* PartyViewModel.swift */,
-				42EE6C232B1EA52E000A836D /* BrowsePartyView.swift */,
+				42EE6C2B2B1EC85E000A836D /* Views */,
 				42EE6C252B1EAA5B000A836D /* Color+.swift */,
 				42EE6C152B1EA3BA000A836D /* Assets.xcassets */,
 				42EE6C172B1EA3BA000A836D /* Preview Content */,
@@ -77,6 +81,16 @@
 				42EE6C182B1EA3BA000A836D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		42EE6C2B2B1EC85E000A836D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				42EE6C232B1EA52E000A836D /* BrowsePartyView.swift */,
+				42EE6C292B1EC83D000A836D /* PartyCardView.swift */,
+				42EE6C272B1EC80E000A836D /* CreatePartySheetView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +166,11 @@
 				42EE6C142B1EA3B6000A836D /* ContentView.swift in Sources */,
 				42EE6C262B1EAA5B000A836D /* Color+.swift in Sources */,
 				42EE6C242B1EA52E000A836D /* BrowsePartyView.swift in Sources */,
+				42EE6C2A2B1EC83D000A836D /* PartyCardView.swift in Sources */,
 				42EE6C202B1EA470000A836D /* Party.swift in Sources */,
 				42EE6C122B1EA3B6000A836D /* WhatsPoppinApp.swift in Sources */,
 				42EE6C222B1EA4DB000A836D /* PartyViewModel.swift in Sources */,
+				42EE6C282B1EC80E000A836D /* CreatePartySheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
