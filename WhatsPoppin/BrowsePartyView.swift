@@ -9,10 +9,10 @@ import SwiftUI
 
 struct BrowsePartyView: View {
     @ObservedObject var partyVM: PartyViewModel = PartyViewModel()
+    
+    @State var showCreateSheet: Bool = false
     var body: some View {
-        ZStack {
-            backgroundGradient
-                .ignoresSafeArea()
+        NavigationView {
             ScrollView {
                 VStack {
                     ForEach(partyVM.parties) { party in
@@ -22,14 +22,70 @@ struct BrowsePartyView: View {
                 }
                 
             }
+            .background {
+                backgroundGradient
+                    .ignoresSafeArea()
+            }
+            .sheet(isPresented: $showCreateSheet) {
+                CreateSheetView(partyVM: partyVM)
+            }
+            .preferredColorScheme(.dark)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showCreateSheet.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
-        .preferredColorScheme(.dark)
     }
+    
+    var filteredParties: [Party] {
+        
+    }
+
     
     var backgroundGradient: LinearGradient {
             LinearGradient(colors: [.BGPink, .BGPurple, .BGPurple, .BGPink],
                            startPoint: .topLeading, endPoint: .bottomTrailing)
     }
+}
+
+struct CreateSheetView: View {
+    var partyVM: PartyViewModel
+    @State private var name: String = ""
+    @State private var price: Double?
+    @State private var startDate: Date = .now
+    
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        VStack {
+            Form {
+                TextField("Party Name", text: $name)
+                TextField("Price", value: $price, formatter: formatter)
+                DatePicker(
+                        "Start Date",
+                        selection: $startDate,
+                        displayedComponents: [.date]
+                    )
+                    .datePickerStyle(.graphical)
+            }
+            
+            Button("Create") {
+                partyVM.addParty(Party(name: name, imageURLString: Party.urls[0], price: price ?? 0, startDate: startDate))
+                dismiss.callAsFunction()
+            }
+        }
+    }
+    
+    let formatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            return formatter
+        }()
 }
 
 struct PartyCardView: View {

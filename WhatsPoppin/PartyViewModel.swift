@@ -28,5 +28,9 @@ class PartyViewModel: ObservableObject {
             parties.append(party)
         }
     }
+    
+    func addParty(_ party: Party) {
+        parties.append(party)
+    }
 }
 
