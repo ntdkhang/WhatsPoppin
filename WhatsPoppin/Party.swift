@@ -29,4 +29,14 @@ extension Party {
         "https://static.wikia.nocookie.net/rickandmorty/images/c/c5/RICK_MORTY_BILLBOARD_72.jpg/revision/latest/scale-to-width-down/1000?cb=20171014061949",
         "https://static.wikia.nocookie.net/rickandmorty/images/4/49/Total_Rickall.png/revision/latest?cb=20160920093829"
     ]
+    
+    static var names: [String] = [
+        "Auto Erotic Assimilation",
+        "Total Rickall",
+        "Lawnmower Dog",
+        "Pickle Rick",
+        "Juricksic Mort",
+        "Analyze Piss",
+        "Raising Gazorpazorp"
+    ]
 }

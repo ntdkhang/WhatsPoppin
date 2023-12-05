@@ -38,6 +38,7 @@ struct PartyCardView: View {
     var body: some View {
         ZStack {
             VStack {
+                // MARK: Image
                 AsyncImage(url: URL(string: party.imageURLString)) { image in
                     image
                         .resizable()
@@ -46,6 +47,8 @@ struct PartyCardView: View {
                 } placeholder: {
                     ProgressView()
                 }
+                
+                // MARK: Time
                 HStack {
                     Image(systemName: "calendar")
                     Group {
@@ -60,6 +63,17 @@ struct PartyCardView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 8)
+                
+                // MARK: Price
+                HStack {
+                    Text(priceString)
+                        .font(.subheadline)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 8)
+                
+                
+                // MARK: Name
                 Text(party.name)
                     .font(.title.bold())
             }
@@ -69,11 +83,14 @@ struct PartyCardView: View {
                     .blur(radius: 8)
                     .clipShape(roundedRect)
             }
-            
-            VStack(alignment: .leading) {
-                Text("Hello")
-            }
         }
+    }
+    
+    var priceString: String {
+        if (party.price == 0) {
+            return "Free"
+        }
+        return String(format: "$ %.2f", party.price)
     }
     
     var roundedRect: RoundedRectangle {
