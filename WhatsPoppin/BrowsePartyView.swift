@@ -9,13 +9,14 @@ import SwiftUI
 
 struct BrowsePartyView: View {
     @ObservedObject var partyVM: PartyViewModel = PartyViewModel()
-    
+    @State var search: String = ""
     @State var showCreateSheet: Bool = false
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack {
-                    ForEach(partyVM.parties) { party in
+                    ForEach(filteredParties) { party in
                         PartyCardView(party: party)
                             .padding()
                     }
@@ -40,10 +41,14 @@ struct BrowsePartyView: View {
                 }
             }
         }
+        .searchable(text: $search)
     }
     
     var filteredParties: [Party] {
-        
+        if search.isEmpty {
+            return partyVM.parties
+        }
+        return partyVM.parties.filter { $0.name.contains(search) }
     }
 
     
@@ -69,7 +74,7 @@ struct CreateSheetView: View {
                 DatePicker(
                         "Start Date",
                         selection: $startDate,
-                        displayedComponents: [.date]
+                        displayedComponents: [.date, .hourAndMinute]
                     )
                     .datePickerStyle(.graphical)
             }
